@@ -1,103 +1,103 @@
 $(document).ready(function () {
- // icone come da milestone 1
- const icone = [
-  {
-    name: 'Cat',
-    prefix: 'fas',
-    type: 'fa-cat',
-    family: 'animals',
-  },
-  {
-    name: 'Dog',
-    prefix: 'fas',
-    type: 'fa-dog',
-    family: 'animals',
-  },
-  {
-    name: 'Crow',
-    prefix: 'fas',
-    type: 'fa-crow',
-    family: 'animals',
-  },
-  {
-    name: 'Dove',
-    prefix: 'fas',
-    type: 'fa-dove',
-    family: 'animals',
-  },
-  {
-    name: 'Dragon',
-    prefix: 'fas',
-    type: 'fa-dragon',
-    family: 'animals',
-  },
-  {
-    name: 'Horse',
-    prefix: 'fas',
-    type: 'fa-horse',
-    family: 'animals',
-  },
-  {
-    name: 'Hippo',
-    prefix: 'fas',
-    type: 'fa-hippo',
-    family: 'animals',
-  },
-  {
-    name: 'Fish',
-    prefix: 'fas',
-    type: 'fa-fish',
-    family: 'animals',
-  },
-  {
-    name: 'Carrot',
-    prefix: 'fas',
-    type: 'fa-carrot',
-    family: 'vegetables',
-  },
-  {
-    name: 'Apple-Alt',
-    prefix: 'fas',
-    type: 'fa-apple-alt',
-    family: 'vegetables',
-  },
-  {
-    name: 'lemon',
-    prefix: 'fas',
-    type: 'fa-lemon',
-    family: 'vegetables',
-  },
-  {
-    name: 'Pepper-Hot',
-    prefix: 'fas',
-    type: 'fa-pepper-hot',
-    family: 'vegetables',
-  },
-  {
-    name: 'User-Astronaut',
-    prefix: 'fas',
-    type: 'fa-user-astronaut',
-    family: 'user',
-  },
-  {
-    name: 'User-Graduate',
-    prefix: 'fas',
-    type: 'fa-user-graduate',
-    family: 'user',
-  },
-  {
-    name: 'User-Ninja',
-    prefix: 'fas',
-    type: 'fa-user-ninja',
-    family: 'user',
-  },
-  {
-    name: 'User-Secret',
-    prefix: 'fas',
-    type: 'fa-user-secret',
-    family: 'user',
-  }
-];
+  // icone come da milestone 1
+  const icone = [
+    {
+      name: 'Cat',
+      prefix: 'fas',
+      type: 'fa-cat',
+      family: 'animals',
+    },
+    {
+      name: 'Dog',
+      prefix: 'fas',
+      type: 'fa-dog',
+      family: 'animals',
+    },
+    {
+      name: 'Crow',
+      prefix: 'fas',
+      type: 'fa-crow',
+      family: 'animals',
+    },
+    {
+      name: 'Dove',
+      prefix: 'fas',
+      type: 'fa-dove',
+      family: 'animals',
+    },
+    {
+      name: 'Dragon',
+      prefix: 'fas',
+      type: 'fa-dragon',
+      family: 'animals',
+    },
+    {
+      name: 'Horse',
+      prefix: 'fas',
+      type: 'fa-horse',
+      family: 'animals',
+    },
+    {
+      name: 'Hippo',
+      prefix: 'fas',
+      type: 'fa-hippo',
+      family: 'animals',
+    },
+    {
+      name: 'Fish',
+      prefix: 'fas',
+      type: 'fa-fish',
+      family: 'animals',
+    },
+    {
+      name: 'Carrot',
+      prefix: 'fas',
+      type: 'fa-carrot',
+      family: 'vegetables',
+    },
+    {
+      name: 'Apple-Alt',
+      prefix: 'fas',
+      type: 'fa-apple-alt',
+      family: 'vegetables',
+    },
+    {
+      name: 'Lemon',
+      prefix: 'fas',
+      type: 'fa-lemon',
+      family: 'vegetables',
+    },
+    {
+      name: 'Pepper-Hot',
+      prefix: 'fas',
+      type: 'fa-pepper-hot',
+      family: 'vegetables',
+    },
+    {
+      name: 'User-Astronaut',
+      prefix: 'fas',
+      type: 'fa-user-astronaut',
+      family: 'user',
+    },
+    {
+      name: 'User-Graduate',
+      prefix: 'fas',
+      type: 'fa-user-graduate',
+      family: 'user',
+    },
+    {
+      name: 'User-Ninja',
+      prefix: 'fas',
+      type: 'fa-user-ninja',
+      family: 'user',
+    },
+    {
+      name: 'User-Secret',
+      prefix: 'fas',
+      type: 'fa-user-secret',
+      family: 'user',
+    }
+  ];
 
   // colori come da milestone 2
   const blue = '#0000ff';
@@ -111,7 +111,7 @@ $(document).ready(function () {
     const type = element.type;
     const family = element.family;
     
-    if(element.family == 'animals') {
+    if(element.family ==  'animals') {
       return {
         name,
         prefix,
@@ -138,42 +138,54 @@ $(document).ready(function () {
     }
   })
   console.log(newIcone);
+  
   //inseriamo le icone nel container come da milestone 2
   const container = $('.icons');
-  const print = () => {
-    newIcone.forEach(element => {
-      $(container).append(`
+  
+  const print = (array, selector) => {
+    array.forEach(element => {
+      const {name, prefix, type, color} = element;
+      $(selector).append(`
       <div>
-      <i class="${element.prefix} ${element.type}" style="color: ${element.color}"></i>
-      <div class="title">${element.name}</div>
+      <i class="${prefix} ${type}" style="color: ${color}"></i>
+      <div class="title">${name}</div>
       </div>
       `);
   });
-  }
-  print();
+  };
+ 
+  print(newIcone, container);
+  
   //estrapoliamo i tipi di icone
   newIcone.forEach(element => {
     const {family} = element;
     console.log(family);
-  })
+  });
+
+  
   //aggiungiamo i tipi alla select
   const select = $('#type');
   select.append(`
   <option value="animals">Animals</option>
   <option value="vegetables">Vegetables</option>
   <option value="user">User</option>
-  `)
+  `);
 
   //al change mostriamo solo le icone filtrate
   //mostriamo come passare un parametro a change e contemporaneamente destrutturiamo
-  let option = $('#type > option');
-  if ($(option).val('animals')) {
-    console.log('vuoi animali');
 
-  }
-
-
-
+  $(select).change(function () { 
+    const choice =$('#type option:selected').val();
+    
+    const iconeFilter = newIcone.filter(element => element.family == choice);
+    
+    $('.icons > div').hide();
+    
+    if (choice == '') {
+      print(newIcone, container)
+    } else {
+      print(iconeFilter, container)
+    }
+  });
 /* ---- FUNCTIONS ----*/
-
 });
